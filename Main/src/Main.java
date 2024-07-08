@@ -58,6 +58,8 @@ public class Main {
         }
     }
 
+    //! < ---------------------------- METODOS DEL MAIN ---------------------------- />
+    //* < -------------- Crear producto (inputs al usuario) -------------- />
     public static Producto crearProducto() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingresar nombre del producto: ");
@@ -73,6 +75,7 @@ public class Main {
         return new Producto(codigo, nombre, categoria, descripcion, precio);
     }
 
+    //* < -------------- Cargar arrayList -------------- />
     public static ArrayList<Producto> cargarProductos(String nombreArchivo) {
         ArrayList<Producto> productos = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(nombreArchivo))) {
@@ -95,6 +98,7 @@ public class Main {
         return productos;
     }
 
+    //* < -------------- Guardar arrayList -------------- />
     public static void guardarProductos(String nombreArchivo, ArrayList<Producto> listaProductos) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo))) { // sin modo de adición
             for (Producto p : listaProductos) {
@@ -106,9 +110,10 @@ public class Main {
         }
     }
 
+    //* < -------------- Seleccionar categoria (se mostraría una lista con las categorias disponibles) -------------- />
     public static String seleccionarCategoria(ArrayList<Producto> L) {
         Scanner scanner = new Scanner(System.in);
-        for (Producto P : L) {
+        for (Producto P : L) { //! si la categoria se repite, me la muestra varias veces, por lo tanto, hay que cambiar esto
             System.out.println(P.getCategoria());
         }
         System.out.print("Ingresar categoria: ");

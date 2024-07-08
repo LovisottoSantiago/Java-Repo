@@ -54,7 +54,6 @@ public class Producto {
     }
 
     //! < -------------- Metodos de la clase producto -------------- />
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -67,7 +66,7 @@ public class Producto {
     public int hashCode() {
         return Integer.hashCode(codigo);
     }
-
+    //* < -------------- Mostrar datos del producto -------------- />
     public void saludar(){
         System.out.println("Nombre: " + nombre + ", precio: $" + precio + ".\nCodigo: " + codigo + ", categoria: " + categoria + ".\n");
     }
