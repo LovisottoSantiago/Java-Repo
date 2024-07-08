@@ -16,7 +16,6 @@ public class Main {
                 System.out.println("0. Salir");
                 System.out.print("Elija una opcion: ");
                 int opcion = Integer.parseInt(scanner.nextLine());
-
                 switch (opcion) {
                     case 1:
                         String B = seleccionarCategoria(listaProductos);
@@ -24,12 +23,10 @@ public class Main {
                             if ((p.getCategoria()).equalsIgnoreCase(B)) {
                                 System.out.println(" ");
                                 p.saludar();
-                            } else {
-                                throw new MisExcepciones("Categoria incorrecta");
                             }
                         }
                         break;
-
+                        //throw new MisExcepciones("Categoria incorrecta");
                     case 2:
                         boolean condicion = true;
                         while (condicion) {
@@ -43,11 +40,9 @@ public class Main {
                         }
                         guardarProductos("listaProductos.txt", listaProductos); // guardar la lista completa
                         break;
-
                     case 0:
                         menu = false;
                         break;
-
                     default:
                         throw new MisExcepciones("No elegiste un valor del menu");
                 }
