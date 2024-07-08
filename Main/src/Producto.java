@@ -55,7 +55,22 @@ public class Producto {
 
     //! < -------------- Metodos de la clase producto -------------- />
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Producto producto = (Producto) obj;
+        return codigo == producto.codigo;
+    }
 
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(codigo);
+    }
+
+    public void saludar(){
+        System.out.println("Nombre: " + nombre + ", precio: $" + precio + ".\nCodigo: " + codigo + ", categoria: " + categoria + ".\n");
+    }
 
 
 }

@@ -1,2 +1,2 @@
-59,Lavandina,Suelto,5 litros,1800.0
-60,Jabon Ariel,Suelto,5 litros,3500.0
+111,Cloro,liquidos sueltos,5 litros,3500.0
+12312,new pel fusion,papel higienico,doble hoja 30 x 20m,8600.0
