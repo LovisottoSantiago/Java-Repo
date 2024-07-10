@@ -20,8 +20,8 @@ public class Main {
         //* throw new MisExcepciones("No elegiste un valor del menu");
 
 
-
-
+        Cordero corderito = new Cordero("Santiaguito", "Ovino Argentino", 50, 15, 1.8);
+        corderito.saludar(true);
     }
 
 
