@@ -1,14 +1,14 @@
 package Logica;
-import Igu.Pantalla;
+import Igu.Login;
 import java.util.ArrayList;
 
-public class JavaPruebas {
+public class Main {
 
     public static void main(String[] args) {
         
         ArrayList<User> dataBase = new ArrayList<>();
         
-        Pantalla panta = new Pantalla(dataBase);
+        Login panta = new Login(dataBase);
         panta.setVisible(true);
         panta.setLocationRelativeTo(null);
         

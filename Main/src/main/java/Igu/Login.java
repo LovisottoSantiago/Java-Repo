@@ -3,13 +3,15 @@ package Igu;
 import Logica.User;
 import java.util.ArrayList;
 
-public class Pantalla extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame {
 
    private ArrayList<User> dataBase = new ArrayList<>();
 
-    public Pantalla(ArrayList<User> dataBase) {
+    public Login(ArrayList<User> dataBase) {
         this.dataBase = dataBase;
         initComponents();
+        setSize(270, 400);
+        setResizable(false);
     }
     
 
@@ -23,7 +25,8 @@ public class Pantalla extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         inputUserPassword = new javax.swing.JPasswordField();
-        btn1 = new javax.swing.JToggleButton();
+        btnLogin = new javax.swing.JToggleButton();
+        btnSignUp = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,10 +47,17 @@ public class Pantalla extends javax.swing.JFrame {
 
         inputUserPassword.setToolTipText("");
 
-        btn1.setText("Login");
-        btn1.addActionListener(new java.awt.event.ActionListener() {
+        btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn1ActionPerformed(evt);
+                btnLoginActionPerformed(evt);
+            }
+        });
+
+        btnSignUp.setText("Don't have an account? Sign up");
+        btnSignUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignUpActionPerformed(evt);
             }
         });
 
@@ -66,11 +76,12 @@ public class Pantalla extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(inputUserName)
                             .addComponent(jLabel3)
-                            .addComponent(inputUserPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)))
+                            .addComponent(inputUserPassword)
+                            .addComponent(btnSignUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                        .addGap(78, 78, 78)
+                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,16 +96,18 @@ public class Pantalla extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(inputUserPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(btn1)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnLogin)
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,29 +123,35 @@ public class Pantalla extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputUserNameActionPerformed
 
-    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-       String btnUserName = inputUserName.getText();
-       String btnUserPassword = new String (inputUserPassword.getPassword());
-       boolean state = false;
-       
-      for (User x : dataBase){
-          if ((x.getUserName().equals(btnUserName)) && (x.getUserPassword().equals(btnUserPassword))){
-              state = true;
-              break;
-          }          
-      }
-      
-      if (!state){
-          System.out.println("Login failed...");
-      }
-      else{
-          System.out.println("Login succesful!");
-      }
-        
-    }//GEN-LAST:event_btn1ActionPerformed
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+          String btnUserName = inputUserName.getText();
+          String btnUserPassword = new String (inputUserPassword.getPassword());
+          boolean state = false;
+
+         for (User x : dataBase){
+             if ((x.getUserName().equals(btnUserName)) && (x.getUserPassword().equals(btnUserPassword))){
+                 state = true;
+                 break;
+             }          
+         }
+
+         if (!state){
+             System.out.println("Login failed...");
+         }
+         else{
+             System.out.println("Login succesful!");
+         }
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
+          Registration home = new Registration();
+          home.setVisible(true);
+          home.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnSignUpActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton btn1;
+    private javax.swing.JToggleButton btnLogin;
+    private javax.swing.JToggleButton btnSignUp;
     private javax.swing.JTextField inputUserName;
     private javax.swing.JPasswordField inputUserPassword;
     private javax.swing.JLabel jLabel1;
