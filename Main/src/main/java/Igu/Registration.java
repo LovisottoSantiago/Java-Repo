@@ -241,7 +241,7 @@ public class Registration extends javax.swing.JFrame {
 
         User newUser = new User(inputName, inputSurname, inputAge, inputId, inputUsername, inputPassword);
         System.out.println("New user has been created: " + newUser.getUserName());
-        
+        this.dispose(); //close window
     }//GEN-LAST:event_createAccountActionPerformed
 
     private void ageRegistrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageRegistrationActionPerformed
