@@ -1,7 +1,8 @@
 package Logica;
 
 public class User extends Person {
-    private String userName, userPassword;
+    private String userName;
+    private final String userPassword;
     
     public User(String name, String surname, int age, int id, String userName, String userPassword){
         super(name, surname, age, id);
