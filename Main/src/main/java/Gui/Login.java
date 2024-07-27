@@ -1,5 +1,6 @@
 package Gui;
 
+import Logica.MyExceptions;
 import Logica.User;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -215,11 +216,14 @@ public class Login extends javax.swing.JFrame {
                 break;
             }
         }
-
-        if (isAuthenticated) {
-            System.out.println("Login successful!");
-        } else {
-            System.out.println("Login failed. Check your username and password.");
+        try{
+            if (isAuthenticated) {
+                System.out.println("Login successful!");
+            } else {
+                throw new MyExceptions("Login failed. Check your username and password.");     
+            }
+        }
+        catch(MyExceptions e){          
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
