@@ -1,15 +1,20 @@
 package Gui;
 
+import Logica.MyExceptions;
 import Logica.User;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class Registration extends javax.swing.JFrame {
 
+    private ArrayList<User> dataBase = new ArrayList<>();
     private int mouseX;
     private int mouseY;
 
-    public Registration() {
+    public Registration(ArrayList<User> dataBase) {
+        this.dataBase = dataBase;
         // Set the frame to be undecorated before initializing components
         setUndecorated(true);
         
@@ -212,6 +217,7 @@ public class Registration extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameRegistrationActionPerformed
 
+        
     private void createAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountActionPerformed
         String inputName = nameRegistration.getText().trim();
         String inputSurname = ageRegistration.getText().trim();
@@ -224,6 +230,7 @@ public class Registration extends javax.swing.JFrame {
             System.out.println("Please fill in all fields.");
             return;
         }
+        
 
         int inputId;
         int inputAge;
@@ -235,9 +242,21 @@ public class Registration extends javax.swing.JFrame {
             return;
         }
 
-        User newUser = new User(inputName, inputSurname, inputAge, inputId, inputUsername, inputPassword);
-        System.out.println("New user has been created: " + newUser.getUserName());
-        this.dispose(); //close window
+        try{
+            User newUser = new User(inputName, inputSurname, inputAge, inputId, inputUsername, inputPassword);
+            
+            for (User user : dataBase) {
+                if (user.getId() == (inputId) || user.getUserName().equals(inputUsername)) {
+                    throw new MyExceptions("User already exists in the database.");                    
+                }
+            }
+            dataBase.add(newUser);
+            System.out.println("New user has been created: " + newUser.getUserName());
+            this.dispose(); //close window
+        }
+        catch(MyExceptions x){
+            
+        }
     }//GEN-LAST:event_createAccountActionPerformed
 
     private void closeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtnActionPerformed

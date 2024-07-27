@@ -228,7 +228,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_inputUserNameActionPerformed
 
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
-        Registration home = new Registration();
+        Registration home = new Registration(dataBase);
         home.setVisible(true);
         home.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnSignUpActionPerformed

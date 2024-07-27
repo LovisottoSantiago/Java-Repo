@@ -6,6 +6,7 @@ Gui\Registration$7.class
 Gui\Login$7.class
 Gui\Registration$2.class
 Gui\Login$2.class
+Logica\MyExceptions.class
 Gui\Registration.class
 Gui\Login$4.class
 Gui\Registration$5.class
