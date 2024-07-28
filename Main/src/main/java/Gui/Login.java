@@ -208,7 +208,7 @@ public class Login extends javax.swing.JFrame {
             System.out.println("Please enter both username and password.");
             return;
         }
-
+//
         boolean isAuthenticated = false;
         for (User user : dataBase) {
             if (user.getUserName().equals(btnUserName) && user.getUserPassword().equals(btnUserPassword)) {
