@@ -219,6 +219,9 @@ public class Login extends javax.swing.JFrame {
         try{
             if (isAuthenticated) {
                 System.out.println("Login successful!");
+                Home home = new Home(dataBase);
+                home.setVisible(true);
+                home.setLocationRelativeTo(null);
             } else {
                 throw new MyExceptions("Login failed. Check your username and password.");     
             }
@@ -232,9 +235,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_inputUserNameActionPerformed
 
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
-        Registration home = new Registration(dataBase);
-        home.setVisible(true);
-        home.setLocationRelativeTo(null);
+        Registration regis = new Registration(dataBase);
+        regis.setVisible(true);
+        regis.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnSignUpActionPerformed
 
     private void inputUserPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputUserPasswordActionPerformed
