@@ -14,6 +14,7 @@ Gui\Login.class
 Gui\Registration$1.class
 Gui\Registration$8.class
 Logica\User.class
+Gui\Home.class
 Gui\Login$6.class
 Gui\Registration$6.class
 Logica\Main.class
